@@ -1,0 +1,12 @@
+CollegeOfArchitecture:西安建筑科技大学-建筑学院
+JianDa:西安建筑科技大学-西部绿色建筑实验室
+ianDaDaLou:西安建筑科技大学-教学大楼
+JianDaGymnasium:西安建筑科技大学-文体馆
+JianDaHistoryMuseum:西安建筑科技大学-校史馆
+JiandaLibrary:西安建筑科技大学-图书馆
+JianDaNanJie:西安建筑科技大学-南阶
+JianDaNanMen:西安建筑科技大学-南门
+JianDaXiJie:西安建筑科技大学-西阶
+JianDaXiMen:西安建筑科技大学-西门
+JianDaYifuFloor:西安建筑科技大学-逸夫楼
+JiaoXueDaLou:西安建筑科技大学-教学大楼

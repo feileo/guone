@@ -1,0 +1,92 @@
+{% extends "base.html"%}
+{%import "bootstrap/wtf.html" as wtf%}
+
+{%block head%}
+    {{super()}}
+{%endblock%}
+
+{%block styles%}
+    {{super()}}
+    <!-- <link href="~/js/video-js-5.11.4/alt/video-js-cdn.min.css" rel="stylesheet" /> -->
+    <!-- <link href="http://vjs.zencdn.net/5.0.2/video-js.css" rel="stylesheet"> -->
+    <style type="text/css">
+        body {
+        background: #fafafa;
+        }
+    </style>
+    <style type="text/css">
+    .main{
+        text-align: center;
+        background-color: #fff;
+        border-radius: 20px;
+        width: 880px;
+        height: 640px;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fafafa;
+    }
+    </style>
+{%endblock%}
+
+{%block scripts%}
+    {{super()}}
+    <script src="~/js/video-js-5.11.4/alt/video.novtt.min.js"></script>
+    <script type="text/javascript">
+        function start(){
+            document.getElementById("main-wrapper").scrollIntoView();
+        }
+    </script>
+{%endblock%}
+
+
+{%block title%}
+    户外建筑自动识别系统
+{%endblock%}
+
+{%block navbar%}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle",data-toggle="collapse" data-target =".navbar-collpase">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">&emsp;&emsp;&emsp;&emsp;</a>
+    </div>
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle",data-toggle="collapse" data-target =".navbar-collpase">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{{url_for('home')}}"><font color="white">户外建筑自动识别系统</font></a>
+    </div>
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle",data-toggle="collapse" data-target =".navbar-collpase">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand"><div style=""><font size="4" color="#00FFFF">
+           示例视频
+        </font></div></a>
+    </div>
+</div>
+{%endblock%}
+{%block page_content%}
+    <br><br><br>
+    <div class="main">
+    <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="880" height="640" poster="static/bg/2.jpg" data-setup="{}">
+    <source src="static/example/output.mp4" type="video/mp4">
+    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+  </video></div>
+{%endblock%}

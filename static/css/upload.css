@@ -1,0 +1,37 @@
+.STYLE2 {
+	font-size: 32px;
+	font-weight: bold;
+}
+.button {
+  display: block;
+  width: 800px;
+  height: 35px;
+  margin: 15px auto;
+  border-radius: 10px;
+  border: none;
+  background-color: #42A5F5;
+  color: white;
+  font-family: 'Port Lligat Slab', Arial, sans-serif;
+  font-size: 1.4em;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+  .button:active {
+    background-color: #085796;
+    box-shadow: none; }
+.upload {
+  display: block;
+  width: 400px;
+  height: 28px;
+  margin: 15px auto;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Port Lligat Slab', Arial, sans-serif;
+  font-size: 1.4em;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+.dropzone {
+    border: 2px dashed #0087F7;
+    background: #ddd;
+} 
+}
+

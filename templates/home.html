@@ -1,0 +1,174 @@
+{% extends "base.html"%}
+{%import "bootstrap/wtf.html" as wtf%}
+
+{%block head%}
+    {{super()}}
+{%endblock%}
+
+{%block styles%}
+    {{super()}}
+    <link href="{{url_for('static',filename='css/main16.css')}}" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    	body {
+    		background: #fafafa;
+		}
+    </style>
+{%endblock%}
+
+{%block scripts%}
+	{{super()}}
+	<script type="text/javascript">
+		function start(){
+			document.getElementById("start").scrollIntoView();
+		}
+	</script>
+{%endblock%}
+
+
+{%block title%}
+	户外建筑自动识别系统
+{%endblock%}
+
+{%block navbar%}
+<div class="navbar navbar-inverse" role="navigation">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle",data-toggle="collapse" data-target =".navbar-collpase">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand">&emsp;&emsp;&emsp;&emsp;</a>
+	</div>
+
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle",data-toggle="collapse" data-target =".navbar-collpase">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="{{url_for('home')}}"><font color="white">&emsp;户外建筑自动识别系统</font></a>
+	</div>
+
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle",data-toggle="collapse" data-target =".navbar-collpase">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="{{url_for('intro')}}"><font style="font-size: 18px">项目介绍</font></a>
+	</div>
+
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle",data-toggle="collapse" data-target =".navbar-collpase">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="{{url_for('my')}}"><font style="font-size: 18px">个人中心</font></a>
+	</div>
+
+    <div class="navbar-header">
+        <ul class=" nav navbar-nav">
+            <li><a class="navbar-brand"  href="{{url_for('logout')}}"><font style="font-size: 18px">注销</font></a></li>
+        </ul>
+    </div>
+
+	<div>
+        <form class="navbar-form navbar-right" method="POST">
+            <div class="form-group">
+                <input type="text" class="form-control" id="homesousuo" placeholder="搜一搜">
+            </div>
+            <a type="submit" class="btn btn-default" onclick="sousuo();"><font style="font-size: 15px">提交</font></a>
+        </form>
+    </div>
+</div>
+{%endblock%}
+
+{%block page_content%}
+
+<div id="page-wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<section id="banner">
+				<header>
+					<h1><font class="myheade" style="font-size:65px; color:">Guone</font></h1>
+					<p>提供精确，高效的户外建筑自动识别服务</p>
+					<br><br>
+					<button  class="btn btn-info btn-lg" onclick="start()">马上开始体验</button>
+				</header>
+			</section>
+		</div>
+	</div>
+
+	<div id="main-wrapper">
+		<div class="row">
+			<div class="12u" id='start'>
+				<section>
+					<header class="major">
+						<h2>Guone 支持</h2>
+					</header>
+					<div class="row">
+						<div class="4u 12u(mobile)">
+							<section class="box">
+								<a href="{{url_for('upload',mode=1)}}" class="image featured"><img src="static/bg/1.JPG" alt="" /></a>
+								<header>
+									<h3>单个建筑图像</h3>
+								</header>
+								<p>应用 SIFT 算法提取训练集图像的特征描述子，使用 KNN 构建分类器，创建单词词汇和单词索引进行查询。</p>
+								<footer>
+									<a href="{{url_for('upload',mode=1)}}" class="button alt">开始识别</a>
+								</footer>
+							</section>
+						</div>
+						<div class="4u 12u(mobile)">
+							<section class="box">
+								<a href="{{url_for('upload',mode=2)}}" class="image featured"><img src="static/bg/2.jpg" alt="" /></a>
+								<header>
+									<h3>多个建筑目标</h3>
+								</header>
+								<p>基于深度学习及大规模图像训练，准确识别建筑图像中的建筑类别、位置、置信度等综合信息。</p>
+								<footer>
+									<a href="{{url_for('upload',mode=2)}}" class="button alt">开始识别</a>
+								</footer>
+							</section>
+						</div>
+						<div class="4u 12u(mobile)">
+							<section class="box">
+								<a href="{{url_for('example')}}" class="image featured"><img src="static/bg/31.png" width="356.66" height="267.48" alt="" /></a>
+								<header>
+									<h3>短视频中的建筑识别</h3>
+								</header>
+								<p>基于yolov3，支持上传短视频识别及连接摄像头进行实时识别，但由于硬件设备受限，无法提供演示，可查看示例。</p>
+								<footer>
+									<a href="{{url_for('example')}}" class="button alt">查看示例</a>
+								</footer>
+							</section>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<div id="footer-wrapper">
+		<section id="footer" class="container">
+			<div class="row">
+				<div class="12u">
+					<div id="copyright">
+						<ul class="links">
+							<p><font color="#000000" size="3">Copyright &copy;<a target="_blank" href="#">Guone项目</a>保留所有权利  |  二零一八年四月</p></font>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+</div>
+{%endblock%}
+
+

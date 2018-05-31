@@ -1,5 +1,5 @@
 # Guone 
-### Guone 是一个较为简单的入门级建筑自动识别系统，支持传统分类和目标检测两种模式。
+### Guone 是一个较简单的户外建筑自动识别系统，支持传统分类和目标检测两种模式。
 #### 系统录屏效果如下：
 [![Watch the video](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](http://youtu.be/vt5fpE0bzSY)
 
@@ -61,19 +61,19 @@ Guone 的依赖较多，请按下面介绍安装相关依赖与支持。
 
 遇到问题：
 
-> gcc -Iinclude/ -Isrc/ -DOPENCV `pkg-config --cflags opencv`  -Wall -Wno-unknown-pragmas -Wfatal-```
-> errors -fPIC -Ofast -DOPENCV -c ./src/gemm.c -o obj/gemm.o
-> In file included from /usr/local/include/opencv2/core/types_c.h:59:0,
->                  from /usr/local/include/opencv2/core/core_c.h:48,
->                  from /usr/local/include/opencv2/highgui/highgui_c.h:45,
->                  from include/darknet.h:25,
->                  from ./src/utils.h:5,
->                  from ./src/gemm.c:2:
-> /usr/local/include/opencv2/core/cvdef.h:485:1: error: unknown type name ‘namespace’
-> namespace cv {
->    ^~~~~~~~~
-> compilation terminated due to -Wfatal-errors.
-> Makefile:85: recipe for target 'obj/gemm.o' failed
+> gcc -Iinclude/ -Isrc/ -DOPENCV `pkg-config --cflags opencv`  -Wall -Wno-unknown-pragmas -Wfatal-```<br>
+> errors -fPIC -Ofast -DOPENCV -c ./src/gemm.c -o obj/gemm.o<br>
+> In file included from /usr/local/include/opencv2/core/types_c.h:59:0,<br>
+>                  from /usr/local/include/opencv2/core/core_c.h:48,<br>
+>                  from /usr/local/include/opencv2/highgui/highgui_c.h:45,<br>
+>                  from include/darknet.h:25,<br>
+>                  from ./src/utils.h:5,<br>
+>                  from ./src/gemm.c:2:<br>
+> /usr/local/include/opencv2/core/cvdef.h:485:1: error: unknown type name ‘namespace’<br>
+> namespace cv {<br>
+>    ^~~~~~~~~ <br>
+> compilation terminated due to -Wfatal-errors.<br>
+> Makefile:85: recipe for target 'obj/gemm.o' failed<br>
 > make: *** [obj/gemm.o] Error 1
 >
 

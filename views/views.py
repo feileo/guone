@@ -122,18 +122,23 @@ def upload(mode):
     return render_template('input.html', form=myfileForm, mode=mode, str=str)
 
 
-@app.route('/predicted/<mode>/<filename>')
+@app.route('/predicted/<mode>/<filename>', methods=['GET', 'POST'])
 def predicted(mode, filename):
     if mode == str(1):
         filepath = '{folder}/{name}'.format(folder=app.config['UPLOAD_FOLDER'], name=filename)
         queryimagename = result.buildindex(filepath)
         htmlstr = result.queryresults(queryimagename)
         return render_template('predicted.html', htmlstr=htmlstr, filename=filename, mode=mode, str=str)
-    elif mode == str(2):
+    else:
         filepath = '../{folder}/{name}'.format(folder=app.config['UPLOAD_FOLDER'], name=filename)
         try:
             os.chdir('./darknet')
-            detect_cmd = './darknet detector test cfg/building.data cfg/building_v3.cfg weights/building_v3.weights '
+            # 复杂模型
+            if mode == '21':
+                detect_cmd = './darknet detector test cfg/building.data cfg/building_v3.cfg weights/building_v3.weights '
+            # 简版模型
+            elif mode == '22':
+                detect_cmd = './darknet detector test cfg/building.data cfg/building_v3_tiny.cfg weights/building_v3_tiny.weights '
             r = os.popen(detect_cmd + filepath)
             output_info = r.readlines()
             names, cvs = get_cr(output_info)

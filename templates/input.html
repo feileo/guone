@@ -632,7 +632,8 @@
         </button>
         <a class="navbar-brand"><div style="color: #00FFFF"><font>
             {% if mode == str(1) %}单目标建筑识别
-            {% else %} 多个建筑目标识别
+            {% elif mode == str(21) %} 多个建筑目标识别-v3
+            {% elif mode == str(22) %} 多个建筑目标识别-v3_tiny
             {% endif %}
         </font></div></a>
     </div>

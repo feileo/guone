@@ -13,14 +13,70 @@
     		background: #fafafa;
 		}
     </style>
+    <style type="text/css">
+        #jsoneditor {
+            text-align:center
+            width: 600px;
+            height: 550px;
+        }
+        .modal-header {
+            padding: 15px;
+            border-bottom: 1px solid #e5e5e5;
+            text-align: left;
+        }
+        .modal-body {
+            position: relative;
+            padding: 15px;
+            text-align: left;
+        }
+        .modal-dialog {
+            width: 600px;
+            margin-top: 135px;
+            margin-right: auto;
+            margin-bottom: 200px;
+            margin-left: auto;
+        }
+    </style>
 {%endblock%}
 
 {%block scripts%}
 	{{super()}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 	<script type="text/javascript">
 		function start(){
 			document.getElementById("start").scrollIntoView();
 		}
+	</script>
+
+	<script type="text/javascript">
+		function mode(choice){
+			if(choice){
+				window.location.href="upload/21";
+            }
+            else{
+				window.location.href="upload/22";
+            }
+		}
+
+		function select_cfg(){
+	        title = "请选择检测模型:"
+	        message = "本系统提供以下两种目标检测的模型：<br><br>";
+	        message += "1: 采用 <a href='https://github.com/acthse/darknet/blob/master/cfg/building_v3.cfg'>building_v3.cfg</a> 复杂的网络，检测效果好，检测速度慢<br>";
+	        message += "2: 采用 <a href='https://github.com/acthse/darknet/blob/master/cfg/building_v3_tiny.cfg'>building_v3_tiny.cfg</a> 简版的网络，检测效果较差，速度快十倍多<br><br>";
+	        message += "系统默认采用v3复杂模型，若要采用简版模型，请点击 ”取消“"
+	        buttons = {
+	            confirm: {
+	                label: '确定',
+	                className: 'btn-success'
+	            },
+	            cancel: {
+	                label: '取消',
+	                className: 'btn-danger'
+	            }
+	        };
+	        bootbox.confirm({title: title, message: message, buttons: buttons, callback: mode});
+	        return;
+   		}
 	</script>
 {%endblock%}
 
@@ -58,7 +114,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="{{url_for('intro')}}"><font style="font-size: 18px">项目介绍</font></a>
+		<a class="navbar-brand" href="{{url_for('intro')}}"><font style="font-size: 18px">系统介绍</font></a>
 	</div>
 
 	<div class="navbar-header">
@@ -132,7 +188,7 @@
 								</header>
 								<p>基于深度学习及大规模图像训练，准确识别建筑图像中的建筑类别、位置、置信度等综合信息。</p>
 								<footer>
-									<a href="{{url_for('upload',mode=2)}}" class="button alt">开始识别</a>
+									<a id="select_mode" onclick="select_cfg();" class="button alt">开始识别</a>
 								</footer>
 							</section>
 						</div>

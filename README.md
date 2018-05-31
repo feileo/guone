@@ -129,4 +129,4 @@ Guone 的依赖较多，请按下面介绍安装相关依赖与支持。
  - `scripts/savevocab.py`         图像训练<br>
  - `scripts/buildindex.py`       建库创索引/存库<br>
  - `scripts/query.py`(可选)       查询测试<br>
-此部分图像处理参考自[《Python计算机视觉编程》](http://yongyuan.name/pcvwithpython/)
+<br>此部分图像处理参考自[《Python计算机视觉编程》](http://yongyuan.name/pcvwithpython/)

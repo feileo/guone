@@ -106,13 +106,20 @@ Guone 的依赖较多，请按下面介绍安装相关依赖与支持。
 # 关于训练
 本系统的有两种模式，其中主要介绍实时目标识别 `Yolo(darknet)` 关于自己数据集的训练。
 ## Yolo (darknet)
-训练过程大致可以分为以下阶段：
+训练过程细节多，需要细心关注，大致可以分为以下阶段：
 
  1. 数据准备，采集图像数据，预处理等
- 2. 标注，推荐使用[LabelImg](https://github.com/tzutalin/labelImg)，该工具在 ` linux`  和 ` windows ` 下安装极为简单，`mac os`  下很难，作者的 github 上有说明。标注是一个体力活，数据集量大的话，慢慢来。
+ 2. 标注，推荐使用[LabelImg](https://github.com/tzutalin/labelImg)。
+
+> 该工具在 ` linux`  和 ` windows ` 下安装极为简单，`mac os`  下很难，作者的 github 上有说明。标注是一个体力活，数据集量大的话，也不要急，慢慢来呗。
+
  3. 理解并修改 `darknet/scripts/voc_label.py`，并用其将标注产生的 `xml` 文件转换成 `yolo` 需要的格式。
  4. 配置你想采用的网络。
- 5. 下载预训练模型/权重文件，开始训练。墙裂推荐使用`GPU`，没有条件的可以瞅瞅[极客云](http://www.jikecloud.net/)，不是打广告，笔者就是用的这个，觉着很好用，方便性价比高。`CPU`的话，额，等的你花儿都谢了。<br>
+ 5. 准备你的 `pro_name.data`。
+ 5. 下载预训练模型/权重文件，开始训练。
+
+> 这里墙裂推荐使用`GPU`，没有条件的可以瞅瞅[极客云](http://www.jikecloud.net/)，不是打广告，笔者就是用的这个，觉着很好用，方便性价比高。`CPU`的话，额，等的你花儿都谢了。<br>
+
  6. 测试你的模型/权重文件。
 
 具体过程可以参考[这篇](https://www.cnblogs.com/antflow/p/7350274.html)博文。<br>
@@ -122,4 +129,4 @@ Guone 的依赖较多，请按下面介绍安装相关依赖与支持。
  - `scripts/savevocab.py`         图像训练<br>
  - `scripts/buildindex.py`       建库创索引/存库<br>
  - `scripts/query.py`(可选)       查询测试<br>
- 此部分图像处理参考自[《Python计算机视觉编程》](http://yongyuan.name/pcvwithpython/)
+此部分图像处理参考自[《Python计算机视觉编程》](http://yongyuan.name/pcvwithpython/)

@@ -1,7 +1,7 @@
 # Guone 
 ### Guone 是一个较简单的户外建筑自动识别系统，支持传统分类和目标检测两种模式。
 #### 系统录屏效果如下：
-[![Watch the video](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](http://youtu.be/vt5fpE0bzSY)
+[![Watch the video](https://github.com/acthse/Guone/tree/master/static/intro/home.png)](http://youtu.be/vt5fpE0bzSY)
 
 # 项目结构及核心目录介绍
 

@@ -44,12 +44,14 @@ Guone 的依赖较多，请按下面介绍安装相关依赖与支持。
 
 >  `./darknet detector test cfg/building.data cfg/building_v3_tiny.cfg weights/building_v3_tiny.weights  test_image_path`
 
-3. 开启摄像头实时检测，需要在编译时开启 ` CUDA ` 和  `OpenCV`,不用` -c `指定摄像头时` opencv` 默认为 `0`。
+3. 开启摄像头实时检测，需要在编译时开启 ` CUDA ` 和  `opencv`,不用` -c `指定摄像头时` opencv` 默认为 `0`。
 >  `./darknet detector demo cfg/building.data cfg/building_v3.cfg weights/building_v3.weights  [ -c <num> ]`
 
-4. 检测本地视频文件，至少需要在编译时开启  `OpenCV`。
+4. 检测本地视频文件，至少需要在编译时开启  `opencv`。
 
 >  `./darknet detector demo cfg/building.data cfg/building_v3.cfg weights/building_v3.weights  test_video_file_path`
+
+如果测试成功，则说明你已经成功安装并可以使用 `darknet ` 框架了。
 
 ## 安装 opencv 以及安装后编译遇到问题
 关于安装`opencv` ，各操作系统不相同，推荐 使用 `Google` 或者 必应搜索国际版 搜索关键字 `opencv3 install on your_system `来找到靠谱的教程。<br>
@@ -78,7 +80,7 @@ Guone 的依赖较多，请按下面介绍安装相关依赖与支持。
 这也是笔者在使用`opencv`编译所遇到的问题，可参考[这里](https://github.com/pjreddie/darknet/issues/485)解决。
 
 ## VLFeat
-本系统在传统分类模式中图像特征的提取（计算图像`sift`特征值）使用了开源工具包`VLFeat`提供的二进制文件，[获取我要工具包](http://www.vlfeat.org/)。该工具包支持主流的`（Windows, Mac, Linux）`操作系统，下载好工具包后，我们只需要 `sift` 的可执行文件，将其在系统中的配置：
+本系统在传统分类模式中图像特征的提取（计算图像`sift`特征值）使用了开源工具包`VLFeat`提供的二进制文件，[获取我要工具包](http://www.vlfeat.org/)。该工具包支持主流的`（windows, Mac, Linux）`操作系统，下载好工具包后，我们只需要 `sift` 的可执行文件，将其在系统中的配置：
 > 在`scripta/sift.py` 的方法 `process_image()`中的`cmmd`给出 `sift`  可执行文件的位置即可。
   
 ## 其他依赖
@@ -98,5 +100,25 @@ Guone 的依赖较多，请按下面介绍安装相关依赖与支持。
 > `deactivate` 
 
 ## 启动 Guone
->  `workon your_pro_name` 
+>  `workon your_pro_name` <br>
 >  `python app.py`
+
+# 关于训练
+本系统的有两种模式，其中主要介绍实时目标识别 `Yolo(darknet)` 关于自己数据集的训练。
+## Yolo (darknet)
+训练过程大致可以分为以下阶段：
+
+ 1. 数据准备，采集图像数据，预处理等
+ 2. 标注，推荐使用[LabelImg](https://github.com/tzutalin/labelImg)，该工具在 ` linux`  和 ` windows ` 下安装极为简单，`mac os`  下很难，作者的 github 上有说明。标注是一个体力活，数据集很多的话，慢慢来。
+ 3. 理解并修改 `darknet/scripts/voc_label.py`，并用其将标注产生的 `xml` 文件转换成 `yolo` 需要的格式。
+ 4. 配置你想采用的网络。
+ 5. 下载预训练模型/权重文件，开始训练。<br>
+ 6. 测试你的模型/权重文件。
+
+具体过程可以参考[这篇](https://www.cnblogs.com/antflow/p/7350274.html)博文。<br>
+这是 `yolov2` 的训练过程，与 `yolov3` 的训练过程主要相差在网络文件的修改配置，v3可看[这篇](https://blog.csdn.net/lilai619/article/details/79695109)博文。
+## 图像分类模式
+图像分类模式的本地图像库训练方法很简单：一次使用脚本<br>
+ - `scripts/savevocab.py`         图像训练<br>
+ - `scripts/buildindex.py`       建库创索引/存库<br>
+ - `scripts/query.py`(可选)       查询测试<br>

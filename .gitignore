@@ -1,5 +1,5 @@
 *.pyc
-static/
+.static/
 
 .DS_Store*
 ehthumbs.db

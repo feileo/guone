@@ -7,6 +7,8 @@
 *.jpg
 *.JPG
 *.pyc
+*.mp4
+*.mov
 static/
 
 .DS_Store*

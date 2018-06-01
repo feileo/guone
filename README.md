@@ -126,7 +126,7 @@ Guone 的依赖较多，请按下面介绍安装相关依赖与支持。
 具体过程可以参考[这篇](https://www.cnblogs.com/antflow/p/7350274.html)博文。<br>
 这是 `yolov2` 的训练过程，与 `yolov3` 的训练过程主要相差在网络文件的修改配置，v3可看[这篇](https://blog.csdn.net/lilai619/article/details/79695109)博文。
 ## 图像分类模式
-图像分类模式的本地图像库训练方法很简单：一次使用脚本<br>
+图像分类模式的本地图像库训练方法很简单：依次使用脚本<br>
  - `scripts/savevocab.py`         图像训练<br>
  - `scripts/buildindex.py`       建库创索引/存库<br>
  - `scripts/query.py`(可选)       查询测试<br>

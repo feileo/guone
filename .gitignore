@@ -1,5 +1,13 @@
 *.pyc
-.static/
+*.o
+*.dSYM
+*.pgm
+*.out
+*.png
+*.jpg
+*.JPG
+*.pyc
+static/
 
 .DS_Store*
 ehthumbs.db

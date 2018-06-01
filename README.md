@@ -80,7 +80,7 @@ Guone 的依赖较多，请按下面介绍安装相关依赖与支持。
 这也是笔者在使用`opencv`编译所遇到的问题，可参考[这里](https://github.com/pjreddie/darknet/issues/485)解决。
 
 ## VLFeat
-本系统在传统分类模式中图像特征的提取（计算图像`sift`特征值）使用了开源工具包`VLFeat`提供的二进制文件，[获取我要工具包](http://www.vlfeat.org/)。该工具包支持主流的`（windows, Mac, Linux）`操作系统，下载好工具包后，我们只需要 `sift` 的可执行文件，将其在系统中的配置：
+本系统在传统图像分类模式中图像特征的提取（计算图像`sift`特征值）使用了开源工具包`VLFeat`提供的二进制文件，[获取我要工具包](http://www.vlfeat.org/)。该工具包支持主流的`（windows, Mac, Linux）`操作系统，下载好工具包后，我们只需要 `sift` 的可执行文件，将其在系统中的配置：
 > 在`scripta/sift.py` 的方法 `process_image()`中的`cmmd`给出 `sift`  可执行文件的位置即可。
   
 ## 其他依赖
@@ -121,7 +121,7 @@ Guone 的依赖较多，请按下面介绍安装相关依赖与支持。
 
 > 这里墙裂推荐使用`GPU`，没有条件的可以瞅瞅[极客云](http://www.jikecloud.net/)，不是打广告，笔者就是用的这个，觉着很好用，方便性，价比高。`CPU`的话，额，等的你花儿都谢了。<br>
 
- 6. 测试你的模型/权重文件。
+ 7. 测试你的模型/权重文件。
 
 具体过程可以参考[这篇](https://www.cnblogs.com/antflow/p/7350274.html)博文。<br>
 这是 `yolov2` 的训练过程，与 `yolov3` 的训练过程主要相差在网络文件的修改配置，v3可看[这篇](https://blog.csdn.net/lilai619/article/details/79695109)博文。

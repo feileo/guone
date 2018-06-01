@@ -84,7 +84,8 @@ Guone 的依赖较多，如果学习需要，请按下面介绍安装相关依�
 > 在`scripta/sift.py` 的方法 `process_image()`中的`cmmd`给出 `sift`  可执行文件的位置即可。
   
 ## 其他依赖
-系统开发使用`python2.7`，数据库使用`sqlite3`，在使用` python app.py` 启动项目时，根据报错没有模块 `X` 使用 `pip install X` 安装即可，推荐采用虚拟隔离环境的方式（上面安装 `opencv` 的教程里也有，这里给出 `python2.x` 在 `mac os`下 的教程）。
+系统开发使用`python2.7`，`flask` 框架，数据库使用 `sqlite3`，此处偷个懒不就一一列出依赖了，后期我可以 `buildout` 一下给大家。<br>
+在使用 `python app.py` 启动项目时，根据报错没有模块 `X` 使用 `pip install X` 安装即可，推荐采用虚拟隔离环境的方式（上面安装 `opencv` 的教程里也有，这里给出 `python2.x` 在 `mac os`下 的教程）。
 > `pip install virtualenv virtualenvwrapper`<br>
 > `echo "VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2" >> ~/.bash_profile`<br>
 > `echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bash_profile`<br>

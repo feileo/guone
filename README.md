@@ -1,6 +1,6 @@
 # Guone 
-### Guone 是一个较简单的户外建筑自动识别系统，支持传统分类和目标检测两种模式。
-#### 系统录屏效果如下：
+### Guone 是一个较简单的户外建筑自动识别系统，支持图像分类和目标检测两种模式。
+#### 系统详细介绍及效果录屏如下：
 [![Watch the video](https://github.com/acthse/Guone/tree/master/static/intro/home.png)](http://youtu.be/vt5fpE0bzSY)
 
 # 项目结构及核心目录介绍
@@ -21,11 +21,11 @@
 -  `forms/`：所用表单<br>
 - `models/`：数据模型<br>
 -  `static/`：静态文件<br>
--  `scripts/`：脚本文件，传统分类模式的计算模块<br>
+-  `scripts/`：脚本文件，图像分类模式的计算模块<br>
 - `templates/`：HTML 模板<br>
 - `views/`：路由、视图<br>
 - `tests/`：测试图片<br>
-	- `1/`：模式1（传统分类）的测试图片<br>
+	- `1/`：模式1（图像分类）的测试图片<br>
 	- `2/`：模式2（目标检测）的测试图片<br>
 - `config.py`：相关配置<br>
 - `app.py`：启动文件<br>
@@ -116,7 +116,8 @@ Guone 的依赖较多，请按下面介绍安装相关依赖与支持。
  3. 理解并修改 `darknet/scripts/voc_label.py`，并用其将标注产生的 `xml` 文件转换成 `yolo` 需要的格式。
  4. 配置你想采用的网络。
  5. 准备你的 `pro_name.data`。
- 5. 下载预训练模型/权重文件，开始训练。
+ 5. 下载预训练模型/权重文件，开始训练，命令如下：
+ >  `./darknet detector train cfg/your_pro_name.data cfg/your_pro_name.cfg [预训练模型] [-gpus 0,1,2,3]` <br>
 
 > 这里墙裂推荐使用`GPU`，没有条件的可以瞅瞅[极客云](http://www.jikecloud.net/)，不是打广告，笔者就是用的这个，觉着很好用，方便性，价比高。`CPU`的话，额，等的你花儿都谢了。<br>
 

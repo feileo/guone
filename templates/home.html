@@ -174,7 +174,8 @@
 								<header>
 									<h3>单个建筑图像</h3>
 								</header>
-								<p>应用 SIFT 算法提取训练集图像的特征描述子，使用 KNN 构建分类器，创建单词词汇和单词索引进行查询。</p>
+								<p>
+								图像分类应用 SIFT 算法提取图像特征描述子，使用 KNN 构建分类器，创建单词词汇和单词索引进行查询。</p>
 								<footer>
 									<a href="{{url_for('upload',mode=1)}}" class="button alt">开始识别</a>
 								</footer>
@@ -186,7 +187,8 @@
 								<header>
 									<h3>多个建筑目标</h3>
 								</header>
-								<p>基于深度学习及大规模图像训练，准确识别建筑图像中的建筑类别、位置、置信度等综合信息。</p>
+								<p>
+								基于深度学习及大规模图像训练，准确识别建筑图像中的建筑类别、位置、置信度等综合信息。</p>
 								<footer>
 									<a id="select_mode" onclick="select_cfg();" class="button alt">开始识别</a>
 								</footer>
@@ -198,7 +200,7 @@
 								<header>
 									<h3>短视频中的建筑识别</h3>
 								</header>
-								<p>基于yolov3，支持上传短视频识别及连接摄像头进行实时识别，但由于硬件设备受限，无法提供演示，可查看示例。</p>
+								<p>基于yolov3，支持上传短视频识别及连接摄像头进行实时检测，但由于硬件设备受限，无法提供演示，可查看示例。</p>
 								<footer>
 									<a href="{{url_for('example')}}" class="button alt">查看示例</a>
 								</footer>

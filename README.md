@@ -37,7 +37,7 @@
 > `git submodule init`<br>
 > `git submodule update`
 
-或者使用 `--recursive` 也OK：<br>
+或者使用 `--recursive` 也 OK哒：<br>
 > `git clone --recursive https://github.com/acthse/Guone.git you_path`<br>
 
 

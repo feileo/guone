@@ -31,9 +31,9 @@
 - `app.py`：启动文件<br>
 # 下载 Guone
 使用命令：
-> `git clone https://github.com/acthse/Guone.git you_path`
-然后：
-> `git submodule init`
+> `git clone https://github.com/acthse/Guone.git you_path`<br>
+然后：<br>
+> `git submodule init`<br>
 > `git submodule update`
 # 启动 Guone
 Guone 的依赖较多，如果学习需要，请按下面介绍安装相关依赖与支持。

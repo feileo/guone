@@ -32,9 +32,11 @@
 # 下载 Guone
 使用命令：
 > `git clone https://github.com/acthse/Guone.git you_path`<br>
+
 然后：<br>
 > `git submodule init`<br>
 > `git submodule update`
+
 # 启动 Guone
 Guone 的依赖较多，如果学习需要，请按下面介绍安装相关依赖与支持。
 ## 使用 darknet 

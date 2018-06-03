@@ -44,7 +44,7 @@
 # 启动 Guone
 Guone 的依赖较多，如果学习需要，请按下面介绍安装相关依赖与支持。
 ## 使用 darknet 
-`darknet` 是用 `C` 写的一个相当不错的开源神经网络框架，这是[作者的`darknet`主页](https://pjreddie.com/darknet/)。
+`darknet` 是一个用 `C` 和 `CUDA` 编写的相当不错的开源神经网络框架，这是[作者的`darknet`主页](https://pjreddie.com/darknet/)。<br>
 **关于安装和使用请阅读** `darknet` 主页的 **`Installing Darknet` 和 `YOLO: Real-Time Object Detection`**，里面有详细的介绍。<br>
 你需要在你的机子上根据你的需要以及硬件条件决定是否安装 `OpenCV`  和 `CUDA`，安装完成后，在 MakeFile 中令相关选项为 1，然后` make` 完成后即可使用。
 ## 测试

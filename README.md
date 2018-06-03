@@ -1,7 +1,7 @@
 # Guone 
 ### Guone 是一个较简单的户外建筑自动识别系统，支持图像分类和实时目标检测两种模式。
 #### 系统详细介绍及效果录屏如下（因压缩画质较差）：<br>
-[![Watch the video](http://p9muivjrs.bkt.clouddn.com/Guone.png)](http://p9muivjrs.bkt.clouddn.com/Guone.mp4)
+[![Watch the video](http://p9muivjrs.bkt.clouddn.com/Guone.png)](http://p9muivjrs.bkt.clouddn.com/video/example/Guone.mp4)
 
 # 项目结构及核心目录
 
@@ -44,7 +44,7 @@
 # 启动 Guone
 Guone 的依赖较多，如果学习需要，请按下面介绍安装相关依赖与支持。
 ## 使用 darknet 
-`darknet` 是用 `C` 写的一个相当不错的开源神经网络框架，这是[作者的 `darknet` 主页](https://pjreddie.com/darknet/).
+`darknet` 是用 `C` 写的一个相当不错的开源神经网络框架，这是[作者的`darknet`主页](https://pjreddie.com/darknet/).
 关于安装和使用，请阅读 `darknet` 主页的 `Installing Darknet` 和 `YOLO: Real-Time Object Detection`，里面有详细的介绍。之后需要在你的机子上根据你的需要以及硬件条件（是否安装了 `OpenCV`  和 `CUDA` ）` make` 完成后即可使用。
 ## 测试
 站在大神的肩膀上，一切都变得很简单。<br><br>

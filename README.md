@@ -24,7 +24,7 @@
 -  `scripts/`：脚本文件，图像分类模式的计算模块<br>
 - `templates/`：HTML 模板<br>
 - `views/`：路由、视图<br>
-- `tests/`：测试图片<br>
+- `tests/`：供识别的测试图片<br>
 	- `1/`：模式1（图像分类）的测试图片<br>
 	- `2/`：模式2（目标检测）的测试图片<br>
 - `config.py`：相关配置<br>
@@ -44,8 +44,8 @@
 # 启动 Guone
 Guone 的依赖较多，如果学习需要，请按下面介绍安装相关依赖与支持。
 ## 使用 darknet 
-`darknet` 是用 `C` 写的一个相当不错的开源神经网络框架，这是[作者的`darknet`主页](https://pjreddie.com/darknet/).
-关于安装和使用，请阅读 `darknet` 主页的 `Installing Darknet` 和 `YOLO: Real-Time Object Detection`，里面有详细的介绍。之后需要在你的机子上根据你的需要以及硬件条件（是否安装了 `OpenCV`  和 `CUDA` ）` make` 完成后即可使用。
+`darknet` 是用 `C` 写的一个相当不错的开源神经网络框架，这是[作者的`darknet`主页](https://pjreddie.com/darknet/)。
+*关于安装和使用*，请阅读 `darknet` 主页的 `Installing Darknet` 和 `YOLO: Real-Time Object Detection`，里面有详细的介绍。之后需要在你的机子上根据你的需要以及硬件条件（是否安装了 `OpenCV`  和 `CUDA` ）` make` 完成后即可使用。
 ## 测试
 站在大神的肩膀上，一切都变得很简单。<br><br>
 采用本系统训练好的模型（当然你也可以下载官网给出的其他模型）进行测试，命令如下（`windows` 下使用 `darknet.exe` 即可）

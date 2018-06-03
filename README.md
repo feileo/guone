@@ -1,6 +1,6 @@
 # Guone 
 ### Guone 是一个较简单的户外建筑自动识别系统，支持图像分类和实时目标检测两种模式。
-#### 系统详细介绍及效果录屏如下（因压缩画质较差）：
+#### 系统详细介绍及效果录屏如下（因压缩画质较差）：<br>
 [![Watch the video](http://p9muivjrs.bkt.clouddn.com/Guone.png)](http://p9muivjrs.bkt.clouddn.com/Guone.mp4)
 
 # 项目结构及核心目录
@@ -37,7 +37,7 @@
 > `git submodule init`<br>
 > `git submodule update`
 
-或者使用 `--recursive` 也 OK哒：<br>
+或者使用 `--recursive` 也 OK 滴：<br>
 > `git clone --recursive https://github.com/acthse/Guone.git you_path`<br>
 
 

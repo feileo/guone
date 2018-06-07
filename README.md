@@ -42,7 +42,22 @@
 
 
 # 启动 Guone
-Guone 的依赖较多，如果学习需要，请按下面介绍安装相关依赖与支持。
+将 Guone 下载完成后，进入 Guone 构建项目：<br>
+> `cd Guone/`<br>
+> `buildout`
+
+如果你没有安装 `buildout` 可使用 pip 安装：<br>
+> `pip install zc.buildout`
+
+构建完成启动 Guone:<br>
+> `./bin/Guone`
+
+或者通过以下命令来指定开启进程数，监听端口等来启动：<br>
+> `./bin/gunicorn -w 1 -b 0.0.0.0:8004  app:app -k gevent`
+
+<br>
+成功启动项目，访问 http://localhost:8004 即可看到系统的登录界面使用 Guone，但因为 Guone 依赖 darknet 框架 和 VLFeat 工具包，所以你需要安装完成 darknet 并下载配置 VLFeat 工具包后才能正常使用，下面介绍安装方法。
+
 ## 使用 darknet 
 
 `darknet` 是一个用 `C` 和 `CUDA` 编写的相当不错的开源神经网络框架，这是[作者的`darknet`主页](https://pjreddie.com/darknet/)。<br><br>
@@ -53,7 +68,7 @@ Guone 的依赖较多，如果学习需要，请按下面介绍安装相关依�
 然后重新编译完成即可使用：<br>
 > ` meke -j16`
 
-## 测试一下
+### 测试一下
 站在大神的肩膀上，一切都变得很简单。<br><br>
 采用本系统训练好的模型（当然你也可以下载官网给出的其他模型）进行测试，命令如下（`windows` 下使用 `darknet.exe` 即可）
 1. building_v3.cfg 复杂版网络
@@ -72,7 +87,7 @@ Guone 的依赖较多，如果学习需要，请按下面介绍安装相关依�
 
 如果测试成功，则说明你已经成功安装并可以使用 `darknet ` 框架了。
 
-## 安装 opencv 以及安装后编译遇到问题
+### 安装 opencv 以及安装后编译遇到问题
 关于安装`opencv` ，各操作系统不相同，推荐 使用 `Google` 或者 必应搜索国际版 搜索关键字 `opencv3 install on your_system `来找到靠谱的教程。<br>
 笔者 `mac os` 系统安装，推荐[这篇教程](https://www.learnopencv.com/install-opencv3-on-macos/)。<br>
 安装成功`opencv` 后，在 `MakeFile` 中令：
@@ -102,27 +117,7 @@ Guone 的依赖较多，如果学习需要，请按下面介绍安装相关依�
 ## VLFeat
 本系统在传统图像分类模式中图像特征的提取（计算图像`sift`特征值）使用了开源工具包`VLFeat`提供的二进制文件，[获取我要工具包](http://www.vlfeat.org/)。该工具包支持主流的`（windows, Mac, Linux）`操作系统，下载好工具包后，我们只需要 `sift` 的可执行文件，将其在系统中的配置：
 > 在`scripta/sift.py` 的方法 `process_image()`中的`cmmd`给出 `sift`  可执行文件的位置即可。
-  
-## 其他依赖
-系统开发使用`python2.7`，`flask` 框架，数据库使用 `sqlite3`，此处偷个懒不就一一列出依赖了，后期我可以 `buildout` 一下给大家。<br>
-在使用 `python app.py` 启动项目时，根据报错没有模块 `X` 使用 `pip install X` 安装即可，推荐采用虚拟隔离环境的方式（上面安装 `opencv` 的教程里也有，这里给出 `python2.x` 在 `mac os`下 的教程）。
-> `pip install virtualenv virtualenvwrapper`<br>
-> `echo "VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2" >> ~/.bash_profile`<br>
-> `echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bash_profile`<br>
-> `source ~/.bash_profile`
 
-创建一个虚拟环境：
-> `mkvirtualenv your_pro_name -p python2`
-
-进入该环境：
-> `workon your_pro_name`
-
-在该环境中使用 `pip` 来安装需要的包，以及运行相关项目。当需要退出此环境时：
-> `deactivate` 
-
-## 启动
->  `workon your_pro_name` <br>
->  `python app.py`
 
 # 关于训练
 本系统的有两种模式，其中主要介绍实时目标识别 `Yolo(darknet)` 关于自己数据集的训练。

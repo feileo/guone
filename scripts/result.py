@@ -61,7 +61,7 @@ def buildindex(filepath):
     upvoc = vocabulary.Vocabulary(os.path.basename(outimage[0]))
     upvoc.train(featlist, k=1, subsampling=10)
     imagename, suffix = os.path.basename(filepath).split('.', 1)
-# 保存该图像词汇
+    # 保存该图像词汇
     imagespkl = r"static/pickle/jianda1.pkl"
     with open(imagespkl, 'ab') as f:
         pickle.dump(upvoc, f)
@@ -70,11 +70,11 @@ def buildindex(filepath):
 
     db = 'static/db/imagedb/jianda1.db'
     idx = imageSearch.Indexer(db, voc)
-# 载入查询图像的特征
+    # 载入查询图像的特征
     locs, descr = sift.read_features_from_file(featlist[0])
     # 将新图像添加到数据库
     idx.add_to_index(outimage[0], descr)
-# 提交到数据库
+    # 提交到数据库
     idx.db_commit()
     return outimage[0]
 

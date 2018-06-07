@@ -18,12 +18,18 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 bootstrap = Bootstrap(app)
 
-# 启动服务
-if __name__ == "__main__":
+
+def run():
     try:
-        app.run(port=8004, debug=True)
+        # app.run(port=8004, debug=False)
+
+        os.system('./bin/gunicorn -w 1 -b 0.0.0.0:8004  app:app -k gevent')
     except Exception as err:
         print err
     finally:
         redb(r'static/db/redb/jianda1.pkl', r'static/pickle/jianda1.pkl')
         redb(r'static/db/redb/jianda1.db', r'static/db/imagedb/jianda1.db')
+
+
+if __name__ == "__main__":
+    run()

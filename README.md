@@ -22,7 +22,7 @@
 - `models/`：数据模型<br>
 -  `static/`：静态文件<br>
 -  `scripts/`：脚本文件，图像分类模式的计算模块<br>
-- `templates/`：HTML 模板<br>
+- `templates/`：HTML <br>
 - `views/`：路由、视图<br>
 - `tests/`：供识别的测试图片<br>
 	- `1/`：模式1（图像分类）的测试图片<br>
@@ -53,7 +53,7 @@ Guone 的依赖较多，如果学习需要，请按下面介绍安装相关依�
 然后重新编译完成即可使用：<br>
 > ` meke -j16`
 
-## 测试
+## 测试一下
 站在大神的肩膀上，一切都变得很简单。<br><br>
 采用本系统训练好的模型（当然你也可以下载官网给出的其他模型）进行测试，命令如下（`windows` 下使用 `darknet.exe` 即可）
 1. building_v3.cfg 复杂版网络
@@ -120,7 +120,7 @@ Guone 的依赖较多，如果学习需要，请按下面介绍安装相关依�
 在该环境中使用 `pip` 来安装需要的包，以及运行相关项目。当需要退出此环境时：
 > `deactivate` 
 
-## 启动 Guone
+## 启动
 >  `workon your_pro_name` <br>
 >  `python app.py`
 

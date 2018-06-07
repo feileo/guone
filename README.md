@@ -18,6 +18,14 @@
 		- `building_v3.weights`：对应 `building_v3.cfg`  训练出的复杂模型/权重文件
 		- `building_v3_tiny.weights`：对应 ` building_v3_tiny.cfg`  训练出的简版模型/权重文件
 	- `...`
+-  `bin/`: build 后的可执行文件<br>
+	- `...` <br>
+	- `Guone/`：Guone <br>
+	- `pylint/`：使用 pylint 静态检查代码 <br>
+	- `gunicorn/`：http server <br>
+	- `buildout/`：构建工具 <br>
+-  `eggs/`: 依赖的包<br>
+- `...`
 -  `forms/`：所用表单<br>
 - `models/`：数据模型<br>
 -  `static/`：静态文件<br>
@@ -25,10 +33,14 @@
 - `templates/`：HTML <br>
 - `views/`：路由、视图<br>
 - `tests/`：供识别的测试图片<br>
-	- `1/`：模式1（图像分类）的测试图片<br>
-	- `2/`：模式2（目标检测）的测试图片<br>
+	- `1/`：模式1（图像分类）的测试图片 <br>
+	- `2/`：模式2（目标检测）的测试图片 <br>
 - `config.py`：相关配置<br>
-- `app.py`：启动文件<br>
+- `app.py`： app<br>
+- `setup.py`：构建文件<br>
+- `buildout.cfg`：配置文件<br>
+- `versions.cfg`： versions<br>
+
 # 下载 Guone
 使用命令：
 > `git clone https://github.com/acthse/Guone.git you_path` 
@@ -42,7 +54,7 @@
 
 
 # 启动 Guone
-将 Guone 下载完成后，进入 Guone 构建项目：<br>
+下载完成后，进入 Guone 构建项目：<br>
 > `cd Guone/`<br>
 > `buildout`
 

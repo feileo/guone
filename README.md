@@ -31,14 +31,14 @@
 - `app.py`：启动文件<br>
 # 下载 Guone
 使用命令：
-> `git clone https://github.com/acthse/Guone.git you_path`<br>
+> `git clone https://github.com/acthse/Guone.git you_path` 
 
 然后：<br>
-> `git submodule init`<br>
+> `git submodule init` <br>
 > `git submodule update`
 
 或者使用 `--recursive` 也 OK 滴：<br>
-> `git clone --recursive https://github.com/acthse/Guone.git you_path`<br>
+> `git clone --recursive https://github.com/acthse/Guone.git you_path` 
 
 
 # 启动 Guone
@@ -46,17 +46,24 @@
 > `cd Guone/`<br>
 > `buildout`
 
-如果你没有安装 `buildout` 可使用 pip 安装：<br>
+如果你没有安装 `buildout` 可使用 `pip` 安装：<br>
 > `pip install zc.buildout`
 
 构建完成启动 Guone:<br>
 > `./bin/Guone`
 
-或者通过以下命令来指定开启进程数，监听端口等来启动：<br>
+或者通过以下命令来指定开启的进程数，监听端口等来启动：<br>
 > `./bin/gunicorn -w 1 -b 0.0.0.0:8004  app:app -k gevent`
 
 <br>
-成功启动项目，访问 http://localhost:8004 即可看到系统的登录界面使用 Guone，但因为 Guone 依赖 darknet 框架 和 VLFeat 工具包，所以你需要安装完成 darknet 并下载配置 VLFeat 工具包后才能正常使用，下面介绍安装方法。
+成功启动项目后，可看到如下信息：<br>
+
+> [2018-06-07 19:33:02 +0800] [9928] [INFO] Starting gunicorn 19.8.1<br>
+> [2018-06-07 19:33:02 +0800] [9928] [INFO] Listening at: http://0.0.0.0:8004 (9928)<br>
+> [2018-06-07 19:33:02 +0800] [9928] [INFO] Using worker: gevent<br>
+> [2018-06-07 19:33:02 +0800] [9931] [INFO] Booting worker with pid: 9931<br>
+
+访问 `http://localhost:8004` 即可看到系统的登录界面使用 Guone，但因为 Guone 依赖 `darknet` 框架 和 `VLFeat` 工具包，所以你需要安装完成 `darknet` 并下载配置 `VLFeat`工具包后才能正常使用，下面介绍安装方法。
 
 ## 使用 darknet 
 
@@ -118,6 +125,9 @@
 本系统在传统图像分类模式中图像特征的提取（计算图像`sift`特征值）使用了开源工具包`VLFeat`提供的二进制文件，[获取我要工具包](http://www.vlfeat.org/)。该工具包支持主流的`（windows, Mac, Linux）`操作系统，下载好工具包后，我们只需要 `sift` 的可执行文件，将其在系统中的配置：
 > 在`scripta/sift.py` 的方法 `process_image()`中的`cmmd`给出 `sift`  可执行文件的位置即可。
 
+## 关于 buildout
+`buildout` 是一个基于 `Python` 的构建工具, 通过一个配置文件，可以从多个部分创建、组装并部署你的应用，即使应用包含了非 `Python` 的组件，`buildout` 也能够胜任。 `buildout` 不但能够像 `setuptools` 一样自动更新或下载安装依赖包，而且还能够像 `virtualenv` 一样，构建一个封闭隔离的开发环境。<br>
+开发过程中如果需要添加依赖，只需要在 `setup.py` 中的 `install_requires` 中添加你的包名，然后 `buildout` 一下即可。
 
 # 关于训练
 本系统的有两种模式，其中主要介绍实时目标识别 `Yolo(darknet)` 关于自己数据集的训练。

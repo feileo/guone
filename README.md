@@ -61,7 +61,7 @@
 如果你没有安装 `buildout` 可使用 `pip` 安装：<br>
 > `pip install zc.buildout`
 
-构建完成启动 Guone:<br>
+构建完成后，**启动 Guone:**<br>
 > `./bin/Guone`
 
 或者通过以下命令来指定开启的进程数，监听端口等来启动：<br>
@@ -138,7 +138,7 @@
 > 在`scripta/sift.py` 的方法 `process_image()`中的`cmmd`给出 `sift`  可执行文件的位置即可。
 
 ## 关于 buildout
-`buildout` 是一个基于 `Python` 的构建工具, 通过一个配置文件，可以从多个部分创建、组装并部署你的应用，即使应用包含了非 `Python` 的组件，`buildout` 也能够胜任。 `buildout` 不但能够像 `setuptools` 一样自动更新或下载安装依赖包，而且还能够像 `virtualenv` 一样，构建一个封闭隔离的开发环境。<br>
+`buildout` 是一个基于 `Python` 的构建工具, 通过一个配置文件，可以从多个部分创建、组装并部署你的应用，即使应用包含了非 `Python` 的组件，`buildout` 也能够胜任。 `buildout` 不但能够像 `setuptools` 一样自动更新或下载安装依赖包，而且还能够像 `virtualenv` 一样，构建一个封闭隔离的开发环境。<br><br>
 开发过程中如果需要添加依赖，只需要在 `setup.py` 中的 `install_requires` 中添加你的包名，然后 `buildout` 一下即可。
 
 # 关于训练

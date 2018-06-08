@@ -15,7 +15,6 @@ def process_image(imagename, resultname, params="--edge-thresh 10 --peak-thresh 
     """处理一幅图像，然后将结果保存在文件中"""
 
     if imagename[-3:] != 'pgm':
-        # 创建一个pgm文件
         im = Image.open(imagename).convert('L')
         im.save('static/tmp/tmp.pgm')
         imagename = 'static/tmp/tmp.pgm'
@@ -28,7 +27,6 @@ def process_image(imagename, resultname, params="--edge-thresh 10 --peak-thresh 
 
 def read_features_from_file(filename):
     """ 读取特征值属性值，然后将其以矩阵的形式返回 """
-
     f = loadtxt(filename)
     return f[:, :4], f[:, 4:]  # 特征位置，描述子
 
@@ -41,7 +39,6 @@ def read_features_from_file1(filename):
 
 def write_features_to_file(filename, locs, desc):
     """ 将特征位置和描述子保存到文件中"""
-
     (filename, hstack((locs, desc)))
 
 
@@ -141,8 +138,7 @@ def plot_matches(im1, im2, locs1, locs2, matchscores, show_below=True):
 
 
 def read_or_compute(imname, siftname, histeq=False):
-    '''Returns features from 'siftname' if it exists. Else, computes features from
-    'imname', writes them to 'siftname', and returns them.'''
+
     if not os.path.exists(siftname):
         process_image(imname, siftname, histeq=histeq)
     return read_features_from_file(siftname)

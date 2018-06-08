@@ -25,7 +25,7 @@ setup(
         'scipy',
         'numpy',
         'pandas',
-        'Pillow'  # PIL
+        'Pillow'  # PIL 改名了
     ],
     entry_points={
         'console_scripts': [

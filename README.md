@@ -10,13 +10,13 @@
 	-  `cfg/`：各版本网络<br>
 		-  `...`
 		-  `building_v3.cfg`：本系统采用的复杂版的网络配置<br>
-		- `building_v3_tiny.cfg`：本系统采用的简版的网络配置<br>
+		- `building_v3_tiny.cfg`：本系统采用的简版(v3-tiny)的网络配置<br>
 		- `...`
 	- `data/VOCdevkit/building2018/` : 本系统的训练数据集，不提供，需要请 issues 私信
 	- `...`
 	- `weights/`: 训练好的模型文件,文件不提供，需要请 issues 私信
 		- `building_v3.weights`：对应 `building_v3.cfg`  训练出的复杂模型/权重文件
-		- `building_v3_tiny.weights`：对应 ` building_v3_tiny.cfg`  训练出的简版模型/权重文件
+		- `building_v3_tiny.weights`：对应 ` building_v3_tiny.cfg`  训练出的简版(v3-tiny)模型/权重文件
 	- `...`
 -  `bin/`: build 后的可执行文件<br>
 	- `...` <br>

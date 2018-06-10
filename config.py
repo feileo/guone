@@ -7,7 +7,7 @@ import sqlite3
 
 app = Flask(__name__)
 
-# 数据库配置
+
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:123456@localhost/test'
 app.config['SQLALCHEMY_DATABASE_URI'] = r'sqlite:///static/db/logindb/login.db'
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True

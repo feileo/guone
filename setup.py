@@ -4,7 +4,8 @@ from setuptools import find_packages, setup
 
 
 setup(
-    name='Guone', version='0.0.1',
+    name='Guone',
+    version='0.0.1',
     license='PRIVATE',
     author='GuoJiawei',
     author_email='acthse@outlook.com',

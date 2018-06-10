@@ -5,7 +5,6 @@ import os
 from shutil import copy
 from flask_bootstrap import Bootstrap
 
-from config import UPLOAD_FOLDER, ALLOWED_EXTENSIONS
 from views.views import app
 
 
@@ -13,16 +12,12 @@ def redb(sourceDir, targetDir):
     copy(sourceDir, targetDir)
 
 
-app.config['SECRET_KEY'] = os.urandom(24)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
 bootstrap = Bootstrap(app)
 
 
 def run():
     try:
         # app.run(port=8004, debug=False)
-
         os.system('./bin/gunicorn -w 1 -b 0.0.0.0:8004  app:app -k gevent')
     except Exception as err:
         print err

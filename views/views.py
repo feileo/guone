@@ -14,7 +14,10 @@ from scripts import result
 from scripts.verifycode import RandomChar, ImageChar
 from models.models import User, app
 from forms.forms import registerForm, LoginForm, fileForm, registerForm
-from config import ALLOWED_EXTENSIONS, YOLO_NAMES
+from config import ALLOWED_EXTENSIONS, YOLO_NAMES, UPLOAD_FOLDER
+
+app.config['SECRET_KEY'] = os.urandom(24)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 def allowed_file(filename):

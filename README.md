@@ -149,10 +149,10 @@
  1. 数据准备，采集图像数据，预处理等；
  2. 标注，推荐使用[LabelImg](https://github.com/tzutalin/labelImg)；
 
-> 该工具在 ` linux`  和 ` windows ` 下安装极为简单，`mac os`  下很难，作者的 github 上有说明。标注是一个体力活，数据集量大的话，也不要急，慢慢来呗。
+> 该工具在 `linux`  和 `windows ` 下安装极为简单，`mac os`  下很难，作者的 github 上有说明。标注是一个体力活，数据集量大的话，也不要急，慢慢来呗。
 
  3. 理解并修改 `darknet/scripts/voc_label.py`，并用其将标注产生的 `xml` 文件转换成 `yolo` 需要的格式；
- 4. 配置你想采用的网络；
+ 4. 配置你想采用的网络，本系统使用了 `yolov3-voc.cfg` 和 `yolov3-tiny.cfg`两个版本 ；
  5. 准备你的 `pro_name.data`；
  5. 下载预训练模型/权重文件，开始训练，命令如下：
  >  `./darknet detector train cfg/your_pro_name.data cfg/your_pro_name.cfg [预训练模型] [-gpus 0,1,2,3]` <br>

@@ -9,11 +9,10 @@
 *.pyc
 *.mp4
 *.mov
-static/
+*.sift
 
 *.pid
 *.sqlite3
-*.db
 *.log
 *.sup
 *.bak
@@ -27,9 +26,10 @@ dump.rdb
 .project
 .projectile
 .installed.cfg
+.ropeproject/
 bin/
 develop-eggs/
-Guone.egg-info/
+guone.egg-info/
 parts/
 eggs/
 gen-py/

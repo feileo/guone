@@ -1,0 +1,232 @@
+{% extends "base.html"%}
+{%import "bootstrap/wtf.html" as wtf%}
+
+{%block head%}
+{{super()}}
+{%endblock%}
+
+{%block styles%}
+{{super()}}
+<link href="{{url_for('static',filename='css/main16.css')}}" rel="stylesheet" type="text/css">
+<style type="text/css">
+body {
+  background: #fafafa;
+}
+</style>
+<style type="text/css">
+#jsoneditor {
+  text-align:center
+  width: 600px;
+  height: 550px;
+}
+        .modal-header {
+          padding: 15px;
+          border-bottom: 1px solid #e5e5e5;
+          text-align: left;
+        }
+        .modal-body {
+          position: relative;
+          padding: 15px;
+          text-align: left;
+        }
+        .modal-dialog {
+          width: 600px;
+          margin-top: 135px;
+          margin-right: auto;
+          margin-bottom: 200px;
+          margin-left: auto;
+        }
+</style>
+{%endblock%}
+
+{%block scripts%}
+{{super()}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+<script type="text/javascript">
+function start(){
+  document.getElementById("start").scrollIntoView();
+}
+</script>
+
+<script type="text/javascript">
+function mode(choice){
+  if(choice){
+  window.location.href="upload/21";
+}
+  else{
+  window.location.href="upload/22";
+}
+}
+
+  function select_cfg(){
+  title = "请选择检测模型:"
+  message = "本系统提供以下两种目标检测的模型：<br><br>";
+  message += "1: 采用 <a href='https://github.com/acthse/darknet/blob/master/cfg/building_v3.cfg'>building_v3.cfg</a> 复杂的网络，检测效果好，检测速度慢<br>";
+  message += "2: 采用 <a href='https://github.com/acthse/darknet/blob/master/cfg/building_v3_tiny.cfg'>building_v3_tiny.cfg</a> 简版的网络，检测效果较差，速度快十倍多<br><br>";
+  message += "系统默认采用v3复杂模型，若要采用简版模型，请点击 ”取消“"
+  buttons = {
+  confirm: {
+  label: '确定',
+    className: 'btn-success'
+},
+    cancel: {
+  label: '取消',
+    className: 'btn-danger'
+}
+};
+  bootbox.confirm({title: title, message: message, buttons: buttons, callback: mode});
+  return;
+}
+</script>
+{%endblock%}
+
+
+{%block title%}
+户外建筑自动识别系统
+{%endblock%}
+
+{%block navbar%}
+<div class="navbar navbar-inverse" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle",data-toggle="collapse" data-target =".navbar-collpase">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand">&emsp;&emsp;&emsp;&emsp;</a>
+  </div>
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle",data-toggle="collapse" data-target =".navbar-collpase">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="{{url_for('home')}}"><font color="white">&emsp;户外建筑自动识别系统</font></a>
+  </div>
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle",data-toggle="collapse" data-target =".navbar-collpase">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="{{url_for('intro')}}"><font style="font-size: 18px">系统介绍</font></a>
+  </div>
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle",data-toggle="collapse" data-target =".navbar-collpase">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="{{url_for('my')}}"><font style="font-size: 18px">个人中心</font></a>
+  </div>
+
+  <div class="navbar-header">
+    <ul class=" nav navbar-nav">
+      <li><a class="navbar-brand"  href="{{url_for('logout')}}"><font style="font-size: 18px">注销</font></a></li>
+    </ul>
+  </div>
+
+  <div>
+    <form class="navbar-form navbar-right" method="POST">
+      <div class="form-group">
+        <input type="text" class="form-control" id="homesousuo" placeholder="搜一搜">
+      </div>
+      <a type="submit" class="btn btn-default" onclick="sousuo();"><font style="font-size: 15px">提交</font></a>
+    </form>
+  </div>
+</div>
+{%endblock%}
+
+{%block page_content%}
+
+<div id="page-wrapper">
+  <div id="header-wrapper">
+    <div id="header">
+      <section id="banner">
+        <header>
+          <h1><font class="myheade" style="font-size:65px; color:">Guone</font></h1>
+          <p>提供精确，高效的户外建筑自动识别服务</p>
+          <br><br>
+          <button  class="btn btn-info btn-lg" onclick="start()">马上开始体验</button>
+        </header>
+      </section>
+    </div>
+  </div>
+
+  <div id="main-wrapper">
+    <div class="row">
+      <div class="12u" id='start'>
+        <section>
+          <header class="major">
+            <h2>Guone 支持</h2>
+          </header>
+          <div class="row">
+            <div class="4u 12u(mobile)">
+              <section class="box">
+                <a href="{{url_for('upload',mode=1)}}" class="image featured"><img src="static/bg/1.JPG" alt="" /></a>
+                <header>
+                  <h3>单个建筑图像</h3>
+                </header>
+                <p>
+                  图像分类应用 SIFT 算法提取图像特征描述子，使用 KNN 构建分类器，创建单词词汇和单词索引进行图像检索。</p>
+                <footer>
+                  <a href="{{url_for('upload',mode=1)}}" class="button alt">开始识别</a>
+                </footer>
+              </section>
+            </div>
+            <div class="4u 12u(mobile)">
+              <section class="box">
+                <a href="{{url_for('upload',mode=2)}}" class="image featured"><img src="static/bg/2.jpg" alt="" /></a>
+                <header>
+                  <h3>多个建筑目标</h3>
+                </header>
+                <p>
+                  基于深度学习及大规模图像训练，准确识别建筑图像中的建筑类别、位置、置信度等综合信息。</p>
+                <footer>
+                  <a id="select_mode" onclick="select_cfg();" class="button alt">开始识别</a>
+                </footer>
+              </section>
+            </div>
+            <div class="4u 12u(mobile)">
+              <section class="box">
+                <a href="{{url_for('example')}}" class="image featured"><img src="static/bg/31.png" width="356.66" height="267.48" alt="" /></a>
+                <header>
+                  <h3>视频中的建筑识别</h3>
+                </header>
+                <p>基于yolov3，支持上传视频识别及连接摄像头进行实时检测，但由于硬件设备受限，无法提供演示，可查看示例。</p>
+                <footer>
+                  <a href="{{url_for('example')}}" class="button alt">查看示例</a>
+                </footer>
+              </section>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-wrapper">
+    <section id="footer" class="container">
+      <div class="row">
+        <div class="12u">
+          <div id="copyright">
+            <ul class="links">
+              <p><font color="#000000" size="3">Copyright &copy;<a target="_blank" href="#">Guone项目</a>保留所有权利  |  二零一八年四月</p></font>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</div>
+{%endblock%}
+
+

@@ -1,16 +1,19 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# flake8: noqa
+
+from __future__ import unicode_literals
+
 from setuptools import find_packages, setup
 
 
 setup(
-    name='Guone',
+    name='guone',
     version='0.0.1',
-    license='PRIVATE',
-    author='GuoJiawei',
+    license='BSD license',
+    author='acthse',
     author_email='acthse@outlook.com',
-    url='',
-    description=u'户外建筑自动识别系统',
+    url='https://github.com/acthse/guone',
+    description='简户外建筑自动识别系统',
     packages=find_packages(exclude=['tests']),
     zip_safe=False,
     install_requires=[
@@ -25,12 +28,13 @@ setup(
         'gevent',
         'scipy',
         'numpy',
+        'matplotlib==2.0.2',
         'pandas',
-        'Pillow'  # PIL 改名了
+        'Pillow'
     ],
     entry_points={
         'console_scripts': [
-            'Guone = app:run',
+            'guone = guone.app:run',
         ],
     }
 )

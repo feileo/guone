@@ -1,0 +1,103 @@
+{% extends "base.html"%}
+
+{%block head%}
+{{super()}}
+{%endblock%}
+
+{%block styles%}
+{{super()}}
+<link href="{{url_for('static',filename='css/main16.css')}}" rel="stylesheet" type="text/css">
+{%endblock%}
+
+{%block scripts%}
+{{super()}}
+{%endblock%}
+
+{%block title%}
+户外建筑自动识别系统
+{%endblock%}
+{%block navbar%}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle",data-toggle="collapse" data-target =".navbar-collpase">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand"> &emsp;&emsp;&emsp;&emsp;</a>
+    </div>
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle",data-toggle="collapse" data-target =".navbar-collpase">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{{url_for('home')}}"><font color="white">户外建筑自动识别系统</font></a>
+    </div>
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle",data-toggle="collapse" data-target =".navbar-collpase">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand"><div style=""><font size="4" color="#00FFFF">
+                    识别结果
+                </font></div></a>
+    </div>
+</div>
+{%endblock%}
+
+{%block page_content%}
+<div class="page-header">
+    <h1>
+        <font color="">识别结果</font>
+    </h1>
+
+</div>
+{% if mode == str(1) %}
+<br>
+<div>
+    <h4>
+        <font color=""> 您的建筑图像:</font>
+    </h4>
+    <p align="center"><img src="{{url_for('static',filename='images/'+filename,_external=True)}}" alt="image" height="210"></p>
+</div>
+<div>
+    <h4>
+        <font color="">与您上传的图像相似的图像有:</font>
+    </h4>
+    {% autoescape false %}
+    {{htmlstr}}
+    {% endautoescape %}
+</div>
+{% else %}
+<p align="center"><img src="{{url_for('static',filename='predictions/predictions_' + tsp + '.png', _external=True)}}" height="476"></p>
+<hr>
+<h4 align="center">
+    <font color=""> 图中目标结果:&emsp;&emsp;
+        {% for index,each_out in enumerate(names) %}
+        <font color="">{{each_out}}：{{cvs[index]}}&emsp;&emsp;</font>
+        {% endfor %}</font>
+</h4>
+{% endif %}
+{%block footer%}
+<div id="footer-wrapper">
+    <section id="footer" class="container">
+        <div class="row">
+            <div class="12u">
+                <div id="copyright">
+                    <ul class="links">
+                        <p><font color="" size="3">Copyright &copy;<a target="_blank" href="#">Guone项目</a>保留所有权利  |  二零一八年四月</p></font>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{%endblock%}
+{%endblock%}

@@ -1,68 +1,28 @@
-# Guone 
-### Guone 是一个较简单的户外建筑自动识别系统，支持图像分类和实时目标检测两种模式。
-#### 系统详细介绍及效果录屏如下（因压缩画质较差）：<br>
-[![Watch the video](http://p9muivjrs.bkt.clouddn.com/Guone.png)](http://p9muivjrs.bkt.clouddn.com/video/example/Guone/Guone.mp4)
+# guone 
+Guone 是一个简单的户外建筑自动识别系统，支持图像分类和实时目标检测两种模式。
 
-# 项目结构及核心目录
-
-> 
- -  `darknet/`：[darknet](https://pjreddie.com/darknet/ "darknet") 根目录，可完全独立使用<br>
-	-  `cfg/`：各版本网络<br>
-		-  `...`
-		-  `building_v3.cfg`：本系统采用的复杂版的网络配置<br>
-		- `building_v3_tiny.cfg`：本系统采用的简版(v3-tiny)的网络配置<br>
-		- `...`
-	- `data/VOCdevkit/building2018/` : 本系统的训练数据集，不提供，需要请 issues 私信
-	- `...`
-	- `weights/`: 训练好的模型文件,文件不提供，需要请 issues 私信
-		- `building_v3.weights`：对应 `building_v3.cfg`  训练出的复杂模型/权重文件
-		- `building_v3_tiny.weights`：对应 ` building_v3_tiny.cfg`  训练出的简版(v3-tiny)模型/权重文件
-	- `...`
--  `bin/`: build 后的可执行文件<br>
-	- `...` <br>
-	- `Guone/`：Guone <br>
-	- `pylint/`：使用 pylint 静态检查代码 <br>
-	- `gunicorn/`：http server <br>
-	- `buildout/`：构建工具 <br>
--  `eggs/`: 依赖的包<br>
-- `...`
--  `forms/`：所用表单<br>
-- `models/`：数据模型<br>
--  `static/`：静态文件<br>
--  `scripts/`：脚本文件，图像分类模式的计算模块<br>
-- `templates/`：HTML <br>
-- `views/`：路由、视图<br>
-- `tests/`：供识别的测试图片<br>
-	- `1/`：模式1（图像分类）的测试图片 <br>
-	- `2/`：模式2（目标检测）的测试图片 <br>
-- `config.py`：相关配置<br>
-- `app.py`： app<br>
-- `setup.py`：构建文件<br>
-- `buildout.cfg`：配置文件<br>
-- `versions.cfg`： versions<br>
-
-# 下载 Guone
+# 下载
 使用命令：
-> `git clone https://github.com/acthse/Guone.git you_path` 
+> `git clone https://github.com/acthse/guone.git you_path` 
 
 然后：<br>
 > `git submodule init` <br>
 > `git submodule update`
 
-或者使用 `--recursive` 也 OK 滴：<br>
-> `git clone --recursive https://github.com/acthse/Guone.git you_path` 
+或者使用 `--recursive` 也阔以：<br>
+> `git clone --recursive https://github.com/acthse/guone.git you_path` 
 
 
-# 启动 Guone
+# 启动
 下载完成后，进入 Guone 构建项目：<br>
-> `cd Guone/`<br>
+> `cd guone/`<br>
 > `buildout`
 
 如果你没有安装 `buildout` 可使用 `pip` 安装：<br>
 > `pip install zc.buildout`
 
 构建完成后，**启动 Guone:**<br>
-> `./bin/Guone`
+> `./bin/guone`
 
 或者通过以下命令来指定开启的进程数，监听端口等来启动：<br>
 > `./bin/gunicorn -w 1 -b 0.0.0.0:8004  app:app -k gevent`
@@ -75,13 +35,16 @@
 > [2018-06-07 19:33:02 +0800] [9928] [INFO] Using worker: gevent<br>
 > [2018-06-07 19:33:02 +0800] [9931] [INFO] Booting worker with pid: 9931<br>
 
-访问 `http://localhost:8004` 即可看到系统的登录界面使用 Guone，但因为 Guone 依赖 `darknet` 框架 和 `VLFeat` 工具包，所以你需要安装完成 `darknet` 并下载配置 `VLFeat`工具包后才能正常使用，下面介绍安装方法。
+访问 `http://localhost:8004` 即可看到系统的登录界面使用 guone，但因为 guone 依赖 `darknet` 框架 和 `VLFeat` 工具包，
+所以你需要安装完成 `darknet` 并下载配置 `VLFeat`工具包后才能正常使用，下面介绍安装方法。
 
 ## 使用 darknet 
 
 `darknet` 是一个用 `C` 和 `CUDA` 编写的相当不错的开源神经网络框架，这是[作者的`darknet`主页](https://pjreddie.com/darknet/)。<br><br>
-关于安装和使用，请阅读 `darknet` 主页的 [`Installing Darknet`](https://pjreddie.com/darknet/install/) 和 [`YOLO: Real-Time Object Detection`](https://pjreddie.com/darknet/yolo/)，有详细介绍。<br>
-你需要在你的机子上根据你的需要以及硬件条件决定是否安装 `OpenCV`  和 `CUDA`，安装完成后，在 `MakeFile` 中修改相关选项。因为我的代码已经编译过，你需要进入 `darknet` 目录执行：<br>
+关于安装和使用，请阅读 `darknet` 主页的 [`Installing Darknet`](https://pjreddie.com/darknet/install/) 和 
+[`YOLO: Real-Time Object Detection`](https://pjreddie.com/darknet/yolo/)，有详细介绍。<br>
+你需要在你的机子上根据你的需要以及硬件条件决定是否安装 `OpenCV`  和 `CUDA`，安装完成后，
+在 `MakeFile` 中修改相关选项。因为我的代码已经编译过，你需要进入 `darknet` 目录执行：<br>
 > ` meke clean`
 
 然后重新编译完成即可使用：<br>
@@ -149,11 +112,11 @@
  1. 数据准备，采集图像数据，预处理等；
  2. 标注，推荐使用[LabelImg](https://github.com/tzutalin/labelImg)；
 
-> 该工具在 `linux`  和 `windows ` 下安装极为简单，`mac os`  下很难，作者的 github 上有说明。标注是一个体力活，数据集量大的话，也不要急，慢慢来呗。
+> 该工具在 `linux`  和 `windows ` 下安装极为简单，`mac os`  下很难，作者在 github 上有说明。
 
- 3. 理解并修改 `darknet/scripts/voc_label.py`，并用其将标注产生的 `xml` 文件转换成 `yolo` 需要的格式；
- 4. 配置你想采用的网络，本系统使用了 `yolov3-voc.cfg` 和 `yolov3-tiny.cfg`两个版本 ；
- 5. 准备你的 `pro_name.data`；
+ 3. 理解并修改 `darknet/scripts/voc_label.py`，并用其将标注产生的 `xml` 文件转换成 `yolo` 需要的格式，以及生成相关图像路径文件；
+ 4. 准备你的 `pro_name.names` 和 `pro_name.data` ；
+ 5. 配置你想采用的网络，本系统使用了 `yolov3-voc.cfg` 和 `yolov3-tiny.cfg`两个版本 ；
  5. 下载预训练模型/权重文件，开始训练，命令如下：
  >  `./darknet detector train cfg/your_pro_name.data cfg/your_pro_name.cfg [预训练模型] [-gpus 0,1,2,3]` <br>
 
@@ -165,8 +128,8 @@
 这是 `yolov2` 的训练过程，与 `yolov3` 的训练过程主要相差在网络文件的修改配置，v3可看[这篇](https://blog.csdn.net/lilai619/article/details/79695109)博文。
 ## 图像分类模式
 图像分类模式的本地图像库训练方法很简单：依次使用脚本<br>
- - `scripts/savevocab.py`         图像训练<br>
- - `scripts/buildindex.py`       建库创索引/存储库<br>
- - `scripts/query.py`(可选)       查询测试<br>
+ - `guone/core/savevocab.py`         图像训练<br>
+ - `guone/core/buildindex.py`       建库创索引/存储库<br>
+ - `guone/query.py`(可选)       查询测试<br>
 
 此部分图像处理参考自[《Python计算机视觉编程》](http://yongyuan.name/pcvwithpython/)

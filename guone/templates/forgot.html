@@ -1,0 +1,63 @@
+{% extends "base.html"%}
+{%import "bootstrap/wtf.html" as wtf%}
+
+{%block head%}
+{{super()}}
+<link href="{{url_for('static',filename='css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap-theme.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/templatemo_style.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style_log.css')}}">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+{%endblock%}
+
+{%block title%}
+找回密码
+{%endblock%}
+
+{%block page_content%}
+
+<div class="">
+  <div class="login_logo">
+    <br><br><br><p class="myheade">Guone</p><br>
+  </div>
+  <div class="container">
+    <div class="col-md-12">
+      <form class="form-horizontal templatemo-container templatemo-login-form-1 margin-bottom-30" role="form" action="#" method="post">
+        <div class="col-md-12">
+          <div align="center">
+            <font size="5">忘 记 密 码</font>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <br>
+        </div>
+        <div class="form-group">
+          <div class="col-md-12">
+            请输入您在我们网站注册的电子邮件地址:
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-12">
+            <input type="text" class="form-control" id="email" placeholder="Your email">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-12">
+            <input type="Submit" value="提交" class="btn btn-danger">
+            <br><br>
+            <a href="{{url_for('index')}}">返回登录</a> |
+            <a href="">联系我们</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<style type="text/css">
+body { background-image:url({{url_for('static',filename='bg/bg2.jpeg')}});background-position: 40% 0px; ;font-family: "微软雅黑";font-weight: ;font: normal 60% Helvetica, Arial,sans-serif 900;}
+</style>
+{{super()}}
+{%endblock%}
+

@@ -1,5 +1,5 @@
 # guone 
-Guone 是一个简单的户外建筑自动识别 web 系统，支持图像分类和实时目标检测两种模式。
+**guone** 是一个简单的户外建筑自动识别 web 系统，支持图像分类和实时目标检测两种模式。
 
 ## 下载
 使用命令：
@@ -21,7 +21,7 @@ git clone --recursive https://github.com/acthse/guone.git you_path
 ```
 
 ## 启动
-下载完成后，进入 Guone 构建项目：<br>
+下载完成后，进入 guone 构建项目：<br>
 ```sh
 cd guone/
 buildout

@@ -32,15 +32,19 @@ buildout
 pip install zc.buildout
 ```
 
-构建完成后，启动 guono:
+构建完成后，本地 debug 模式下启动 guone:
+```sh
+./runguone.sh debug   # 注意单词区分大小写
+```
+或者
 ```sh
 ./bin/guone
 ```
-
-或者通过以下命令来指定开启的进程数，监听端口等来启动：<br>
+正式生产环境启动：
 ```sh
-./bin/gunicorn -w 1 -b 0.0.0.0:8004  app:app -k gevent
+./runguone.sh
 ```
+gunicorn 的配置在 gun.conf 中，可根据需求更改。
 
 <br>
 成功启动项目后，可看到如下信息：<br>

@@ -18,7 +18,7 @@ bootstrap = Bootstrap(app)
 
 def run():
     try:
-        os.system('./bin/gunicorn -w 1 -b 0.0.0.0:8004  app:app -k gevent')
+        app.run()
     except Exception as err:
         logging.error(err)
     finally:

@@ -9,8 +9,8 @@ from flask_bootstrap import Bootstrap
 from views.views import app
 
 
-def redb(sourceDir, targetDir):
-    copy(sourceDir, targetDir)
+def redb(source_dir, target_dir):
+    copy(source_dir, target_dir)
 
 
 bootstrap = Bootstrap(app)

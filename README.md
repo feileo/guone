@@ -36,7 +36,7 @@ pip install zc.buildout
 ```sh
 ./runguone.sh debug   # 注意单词区分大小写
 ```
-或者
+或者直接
 ```sh
 ./bin/guone
 ```

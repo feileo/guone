@@ -15,7 +15,7 @@ git submodule init
 git submodule update
 ```
 
-或者使用 `--recursive` 也阔以：<br>
+或使用 `--recursive` 也阔以：<br>
 ```sh
 git clone --recursive https://github.com/acthse/guone.git you_path
 ```
@@ -54,7 +54,7 @@ gunicorn 的配置在 gun.conf 中，可根据需求更改。
 > [2018-06-07 19:33:02 +0800] [9928] [INFO] Using worker: gevent<br>
 > [2018-06-07 19:33:02 +0800] [9931] [INFO] Booting worker with pid: 9931<br>
 
-访问 `http://localhost:8004` 即可看到系统的登录界面使用 guone，但因为 guone 依赖 darknet 框架 和 VLFeat 工具包，
+访问 `http://localhost:8004` 即可看到系统的登录界面使用 guone，但因为 guone 依赖 darknet 框架和 VLFeat 工具包，
 所以你需要安装完成 darknet 并下载配置 VLFeat 工具包后才能正常使用，下面介绍安装方法。
 
 ### 使用 darknet 

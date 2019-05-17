@@ -25,6 +25,8 @@ from guone.models.models import User, app
 app.config['SECRET_KEY'] = os.urandom(24)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+COMPLEX_MODE = '21'
+SIMPLE_MODE ='22'
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
@@ -162,10 +164,10 @@ def predicted(mode, filename):
         try:
             os.chdir('./darknet')
             # 复杂模型
-            if mode == '21':
+            if mode == COMPLEX_MODE:
                 detect_cmd = WEIGHT_CMD
             # 简版模型
-            elif mode == '22':
+            elif mode == SIMPLE_MODE:
                 detect_cmd = TINY_WEIGHT_CMD
             r = os.popen(detect_cmd + filepath)
             output_info = r.readlines()

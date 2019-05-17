@@ -22,8 +22,8 @@ def run():
     except Exception as err:
         logging.error(err)
     finally:
-        redb(r'static/db/redb/jianda1.pkl', r'static/pickle/jianda1.pkl')
-        redb(r'static/db/redb/jianda1.db', r'static/db/imagedb/jianda1.db')
+        redb('static/db/redb/jianda1.pkl', 'static/pickle/jianda1.pkl')
+        redb('static/db/redb/jianda1.db', 'static/db/imagedb/jianda1.db')
 
 
 if __name__ == "__main__":

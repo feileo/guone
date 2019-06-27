@@ -22,7 +22,7 @@ from guone.forms.forms import RegisterForm, LoginForm, FileForm
 from guone.models.models import User, app
 
 
-app.config['SECRET_KEY'] = os.urandom(24)
+app.config['SECRET_KEY'] = '\xf0\xd6n\xd7\xbfO\x10\x0bg\x9c\xc2L]~\x9e<r\xc3\xa6r\xf6U\xd4\xdd'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 COMPLEX_MODE = '21'
